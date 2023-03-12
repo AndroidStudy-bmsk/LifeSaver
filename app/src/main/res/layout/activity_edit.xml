@@ -113,8 +113,8 @@
         android:ellipsize="end"
         android:hint="000-0000-0000"
         android:inputType="phone"
-        app:layout_constraintBaseline_toBottomOf="@id/emergencyTellTextView"
         app:layout_constraintBaseline_toBaselineOf="@id/emergencyTellTextView"
+        app:layout_constraintBaseline_toBottomOf="@id/emergencyTellTextView"
         app:layout_constraintEnd_toEndOf="@+id/nameValueEditText"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
@@ -169,4 +169,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_edit_24" />
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/birthdateLayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="birthdateImageView"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
