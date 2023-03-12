@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".InputActivity"
+        <activity android:name=".EditActivity"
             android:exported="false">
         </activity>
     </application>

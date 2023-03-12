@@ -15,15 +15,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
         android:id="@+id/nameValueEditText"
         style="@style/Value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
         android:ellipsize="end"
+        android:inputType="text"
         android:maxLines="1"
-        android:text="이범석 이름을 길게 넣어 보는중 입니다 람 쥐"
         app:layout_constraintBaseline_toBaselineOf="@+id/nameTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
@@ -37,16 +37,17 @@
         app:layout_constraintStart_toStartOf="@+id/nameTextView"
         app:layout_constraintTop_toBottomOf="@+id/nameTextView" />
 
-    <TextView
-        android:id="@+id/birthdateValueTextView"
+    <EditText
+        android:id="@+id/birthdateValueEditText"
         style="@style/Value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
+        android:paddingEnd="8dp"
         android:text="0000-00-00"
-        app:layout_constraintBaseline_toBaselineOf="@id/birthdateTextView"
-        app:layout_constraintEnd_toEndOf="@+id/nameValueEditText"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintBottom_toBottomOf="@+id/birthdateTextView"
+        app:layout_constraintEnd_toStartOf="@+id/birthdateImageView"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/birthdateTextView" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -64,16 +65,37 @@
         app:layout_constraintStart_toStartOf="@+id/nameTextView"
         app:layout_constraintTop_toBottomOf="@+id/birthdateTextView" />
 
-    <TextView
-        android:id="@+id/bloodTypeValueTextView"
-        style="@style/Value"
+    <RadioGroup
+        android:id="@+id/bloodTypeRadioGroup"
         android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="end"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/bloodTypeTextView"
+        app:layout_constraintEnd_toStartOf="@+id/bloodTypeSpinner"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/bloodTypeTextView">
+
+        <RadioButton
+            android:id="@+id/bloodTypePlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rh+" />
+
+        <RadioButton
+            android:id="@+id/bloodTypeMinus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rh-" />
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/bloodTypeSpinner"
+        android:layout_width="70dp"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:text="B"
-        app:layout_constraintBaseline_toBaselineOf="@id/bloodTypeTextView"
+        app:layout_constraintBottom_toBottomOf="@id/bloodTypeTextView"
         app:layout_constraintEnd_toEndOf="@id/nameValueEditText"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@id/bloodTypeTextView" />
 
     <TextView
         android:id="@+id/emergencyTellTextView"
@@ -84,13 +106,15 @@
         app:layout_constraintStart_toStartOf="@+id/nameTextView"
         app:layout_constraintTop_toBottomOf="@+id/bloodTypeTextView" />
 
-    <TextView
-        android:id="@+id/emergencyTellValueTextView"
+    <EditText
+        android:id="@+id/emergencyTellValueEditText"
         style="@style/Value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:text="000-0000-0000"
+        android:hint="000-0000-0000"
+        android:inputType="phone"
+        app:layout_constraintBaseline_toBottomOf="@id/emergencyTellTextView"
         app:layout_constraintBaseline_toBaselineOf="@id/emergencyTellTextView"
         app:layout_constraintEnd_toEndOf="@+id/nameValueEditText"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
@@ -104,24 +128,45 @@
         app:layout_constraintStart_toStartOf="@+id/nameTextView"
         app:layout_constraintTop_toBottomOf="@+id/emergencyTellTextView" />
 
-    <TextView
+    <ImageView
+        android:id="@+id/birthdateImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_edit_calendar_24"
+        app:layout_constraintBottom_toBottomOf="@+id/birthdateTextView"
+        app:layout_constraintEnd_toEndOf="@id/nameValueEditText"
+        app:layout_constraintTop_toTopOf="@+id/birthdateTextView" />
+
+    <EditText
+        android:id="@+id/noticeValueEditText"
         style="@style/Value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
-        android:maxLines="1"
         android:text="주의 사항"
-        app:layout_constraintBaseline_toBaselineOf="@id/noticeTextView"
         app:layout_constraintEnd_toEndOf="@+id/nameValueEditText"
-        app:layout_constraintStart_toStartOf="@+id/guideline" />
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/noticeCheckBox" />
+
+    <CheckBox
+        android:id="@+id/noticeCheckBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="end|center_vertical"
+        android:text="주의사항 노출"
+        app:layout_constraintBottom_toBottomOf="@+id/noticeTextView"
+        app:layout_constraintEnd_toEndOf="@+id/nameValueEditText"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/noticeTextView" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/goInputActivityButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:clickable="true"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="36dp"
+        android:clickable="true"
+        android:contentDescription="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/baseline_edit_24" />
