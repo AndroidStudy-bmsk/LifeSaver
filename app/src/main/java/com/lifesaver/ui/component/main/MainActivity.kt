@@ -25,29 +25,36 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     }
 
     private fun initGoEditActivityButton() {
-        binding.goInputActivityButton.setOnClickListener {
+        binding.btnGoInputActivity.setOnClickListener {
             val intent = Intent(this, EditActivity::class.java)
             startActivity(intent)
         }
     }
 
     private fun initDeleteButton() {
-        binding.deleteButton.setOnClickListener {
+        binding.btnDelete.setOnClickListener {
             deleteData()
         }
     }
+
+    private fun initEmergencyContactLayer() {
+        binding.layerEmergencyContact.setOnClickListener {
+            
+        }
+    }
+
     private fun getDataUiUpdate() {
         with(LifeSaverPreferences) {
-            binding.nameValueTextView.text = getUserName()
-            binding.birthdateValueTextView.text = getBirthdate()
-            binding.bloodTypeValueTextView.text = getBloodType()
-            binding.emergencyTellValueTextView.text = getEmergencyContact()
+            binding.tvNameValue.text = getUserName()
+            binding.tvBirthdateValue.text = getBirthdate()
+            binding.tvBloodTypeValue.text = getBloodType()
+            binding.tvEmergencyTellValue.text = getEmergencyContact()
             val notice = getNotice()
 
-            binding.noticeTextView.isVisible = notice.isNullOrEmpty().not()
-            binding.noticeValueTextView.isVisible = notice.isNullOrEmpty().not()
+            binding.tvNotice.isVisible = notice.isNullOrEmpty().not()
+            binding.tvNoticeValue.isVisible = notice.isNullOrEmpty().not()
             if(!notice.isNullOrEmpty()) {
-                binding.noticeValueTextView.text = notice
+                binding.tvNoticeValue.text = notice
             }
         }
     }
