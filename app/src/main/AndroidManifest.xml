@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+
     <application
         android:name=".LifeSaverApplication"
         android:allowBackup="true"
@@ -13,6 +15,9 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".ui.component.lockscreen.LockScreenActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.component.main.MainActivity"
             android:exported="true">
             <intent-filter>
@@ -21,10 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ui.component.edit.EditActivity"
-            android:exported="false">
-        </activity>
+        <activity
+            android:name=".ui.component.edit.EditActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
