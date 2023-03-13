@@ -30,7 +30,7 @@ class EditActivity: BaseActivity<ActivityEditBinding>() {
     }
 
     private fun initSpinner() {
-        binding.bloodTypeSpinner.adapter = ArrayAdapter.createFromResource(
+        binding.spnBloodType.adapter = ArrayAdapter.createFromResource(
             this,
             R.array.blood_types,
             android.R.layout.simple_list_item_1
@@ -38,9 +38,9 @@ class EditActivity: BaseActivity<ActivityEditBinding>() {
     }
 
     private fun initBirthdateLayer() {
-        binding.birthdateLayer.setOnClickListener {
+        binding.layerBirthdate.setOnClickListener {
             val listener = OnDateSetListener { _, year, month, dayOfMonth ->
-                binding.birthdateTextView.text = "$year-${month.inc()}-$dayOfMonth"
+                binding.tvBirthdate.text = "$year-${month.inc()}-$dayOfMonth"
             }
             DatePickerDialog(
                 this,
@@ -53,15 +53,15 @@ class EditActivity: BaseActivity<ActivityEditBinding>() {
     }
 
     private fun initNoticeCheckBox() {
-        binding.noticeCheckBox.setOnCheckedChangeListener { _, isChecked ->
-            binding.noticeValueEditText.isVisible = isChecked
+        binding.cbNotice.setOnCheckedChangeListener { _, isChecked ->
+            binding.etNoticeValue.isVisible = isChecked
         }
 
-        binding.noticeValueEditText.isVisible = binding.noticeCheckBox.isChecked
+        binding.etNoticeValue.isVisible = binding.cbNotice.isChecked
     }
 
     private fun initSaveButton() {
-        binding.saveButton.setOnClickListener {
+        binding.btnSave.setOnClickListener {
             saveData()
             finish()
         }
@@ -69,22 +69,22 @@ class EditActivity: BaseActivity<ActivityEditBinding>() {
 
     private fun saveData() {
         with(LifeSaverPreferences) {
-            putUserName(binding.nameValueEditTextView.text.toString())
+            putUserName(binding.etNameValue.text.toString())
             putBloodType(fetchBloodType())
-            putEmergencyContact(binding.emergencyTellValueEditText.text.toString())
-            putBirthdate(binding.birthdateTextView.text.toString())
+            putEmergencyContact(binding.etEmergencyTellValue.text.toString())
+            putBirthdate(binding.tvBirthdate.text.toString())
             putNotice(fetchNotice())
         }
         Toast.makeText(this, "저장을 완료했습니다.", Toast.LENGTH_SHORT).show()
     }
 
     private fun fetchBloodType(): String {
-        val bloodAlphabet = binding.bloodTypeSpinner.selectedItem.toString()
-        val bloodSigned = if(binding.bloodTypePlus.isChecked) "+" else "-"
+        val bloodAlphabet = binding.spnBloodType.selectedItem.toString()
+        val bloodSigned = if(binding.rbtnBloodTypePlus.isChecked) "+" else "-"
         return "$bloodSigned$bloodAlphabet"
     }
 
     private fun fetchNotice(): String {
-        return if(binding.noticeCheckBox.isChecked) binding.noticeValueEditText.text.toString() else ""
+        return if(binding.cbNotice.isChecked) binding.etNoticeValue.text.toString() else ""
     }
 }
