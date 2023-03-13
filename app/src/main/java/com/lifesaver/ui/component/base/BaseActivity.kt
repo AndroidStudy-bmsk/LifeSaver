@@ -1,4 +1,4 @@
-package fastcampus.part1.chapter4.ui.component.base
+package com.lifesaver.ui.component.base
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

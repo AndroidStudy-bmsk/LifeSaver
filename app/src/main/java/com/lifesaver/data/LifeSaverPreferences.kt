@@ -1,4 +1,4 @@
-package fastcampus.part1.chapter4.data
+package com.lifesaver.data
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -59,7 +59,10 @@ object LifeSaverPreferences {
         }
     }
 
-    fun saveData() {
-
+    fun clear() {
+        with(preferences.edit()) {
+            clear()
+            apply()
+        }
     }
 }

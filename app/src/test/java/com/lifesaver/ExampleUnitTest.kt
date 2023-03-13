@@ -1,4 +1,4 @@
-package fastcampus.part1.chapter4
+package com.lifesaver
 
 import org.junit.Test
 

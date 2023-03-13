@@ -1,7 +1,7 @@
-package fastcampus.part1.chapter4
+package com.lifesaver
 
 import android.app.Application
-import fastcampus.part1.chapter4.data.LifeSaverPreferences
+import com.lifesaver.data.LifeSaverPreferences
 
 class LifeSaverApplication : Application(){
     override fun onCreate() {

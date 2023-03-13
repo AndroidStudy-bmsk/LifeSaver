@@ -1,4 +1,4 @@
-package fastcampus.part1.chapter4
+package com.lifesaver.lifesaver
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

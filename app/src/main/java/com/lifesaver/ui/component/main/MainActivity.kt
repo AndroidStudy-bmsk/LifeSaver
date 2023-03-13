@@ -1,13 +1,12 @@
-package fastcampus.part1.chapter4.ui.component.main
+package com.lifesaver.ui.component.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.widget.Toast
 import androidx.core.view.isVisible
-import fastcampus.part1.chapter4.data.LifeSaverPreferences
-import fastcampus.part1.chapter4.databinding.ActivityMainBinding
-import fastcampus.part1.chapter4.ui.component.base.BaseActivity
-import fastcampus.part1.chapter4.ui.component.edit.EditActivity
+import com.lifesaver.databinding.ActivityMainBinding
+import com.lifesaver.data.LifeSaverPreferences
+import com.lifesaver.ui.component.base.BaseActivity
+import com.lifesaver.ui.component.edit.EditActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -17,6 +16,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initView() {
         initGoEditActivityButton()
+        initDeleteButton()
     }
 
     override fun onResume() {
@@ -28,6 +28,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.goInputActivityButton.setOnClickListener {
             val intent = Intent(this, EditActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun initDeleteButton() {
+        binding.deleteButton.setOnClickListener {
+            deleteData()
         }
     }
     private fun getDataUiUpdate() {
@@ -44,5 +50,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 binding.noticeValueTextView.text = notice
             }
         }
+    }
+
+    private fun deleteData() {
+        with(LifeSaverPreferences) {
+            clear()
+            getDataUiUpdate()
+        }
+        Toast.makeText(this, "초기화를 완료했습니다.", Toast.LENGTH_SHORT).show()
     }
 }

@@ -1,16 +1,14 @@
-package fastcampus.part1.chapter4.ui.component.edit
+package com.lifesaver.ui.component.edit
 
 import android.app.DatePickerDialog
 import android.app.DatePickerDialog.OnDateSetListener
-import android.content.Context
-import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.view.isVisible
-import fastcampus.part1.chapter4.R
-import fastcampus.part1.chapter4.data.LifeSaverPreferences
-import fastcampus.part1.chapter4.databinding.ActivityEditBinding
-import fastcampus.part1.chapter4.ui.component.base.BaseActivity
+import com.lifesaver.R
+import com.lifesaver.databinding.ActivityEditBinding
+import com.lifesaver.data.LifeSaverPreferences
+import com.lifesaver.ui.component.base.BaseActivity
 
 class EditActivity: BaseActivity<ActivityEditBinding>() {
 

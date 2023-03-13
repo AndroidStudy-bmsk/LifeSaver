@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'fastcampus.part1.chapter4'
+    namespace 'com.lifesaver'
     compileSdk 33
 
     defaultConfig {
-        applicationId "fastcampus.part1.chapter4"
+        applicationId "com.lifesaver"
         minSdk 28
         targetSdk 33
         versionCode 1
