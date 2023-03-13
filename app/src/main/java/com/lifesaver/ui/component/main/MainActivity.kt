@@ -1,6 +1,7 @@
 package com.lifesaver.ui.component.main
 
 import android.content.Intent
+import android.net.Uri
 import android.widget.Toast
 import androidx.core.view.isVisible
 import com.lifesaver.databinding.ActivityMainBinding
@@ -17,6 +18,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun initView() {
         initGoEditActivityButton()
         initDeleteButton()
+        initEmergencyContactLayer()
     }
 
     override fun onResume() {
@@ -39,7 +41,13 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun initEmergencyContactLayer() {
         binding.layerEmergencyContact.setOnClickListener {
-            
+            // 암시적 인텐트
+            with(Intent(Intent.ACTION_VIEW)) {
+                val phoneNumber = binding.tvEmergencyTellValue.text.toString()
+                    .replace("-", "")
+                data = Uri.parse("tel:$phoneNumber")
+                startActivity(this)
+            }
         }
     }
 
@@ -53,7 +61,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
             binding.tvNotice.isVisible = notice.isNullOrEmpty().not()
             binding.tvNoticeValue.isVisible = notice.isNullOrEmpty().not()
-            if(!notice.isNullOrEmpty()) {
+            if (!notice.isNullOrEmpty()) {
                 binding.tvNoticeValue.text = notice
             }
         }
