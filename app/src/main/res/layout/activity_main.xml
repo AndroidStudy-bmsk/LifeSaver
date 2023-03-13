@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/nameValueEditText"
+        android:id="@+id/nameValueTextView"
         style="@style/Value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
         android:ellipsize="end"
         android:text="0000-00-00"
         app:layout_constraintBaseline_toBaselineOf="@id/birthdateTextView"
-        app:layout_constraintEnd_toEndOf="@+id/nameValueEditText"
+        app:layout_constraintEnd_toEndOf="@+id/nameValueTextView"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -72,7 +72,7 @@
         android:ellipsize="end"
         android:text="B"
         app:layout_constraintBaseline_toBaselineOf="@id/bloodTypeTextView"
-        app:layout_constraintEnd_toEndOf="@id/nameValueEditText"
+        app:layout_constraintEnd_toEndOf="@id/nameValueTextView"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <TextView
@@ -92,7 +92,7 @@
         android:ellipsize="end"
         android:text="000-0000-0000"
         app:layout_constraintBaseline_toBaselineOf="@id/emergencyTellTextView"
-        app:layout_constraintEnd_toEndOf="@+id/nameValueEditText"
+        app:layout_constraintEnd_toEndOf="@+id/nameValueTextView"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <TextView
@@ -105,6 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/emergencyTellTextView" />
 
     <TextView
+        android:id="@+id/noticeValueTextView"
         style="@style/Value"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -112,7 +113,7 @@
         android:maxLines="1"
         android:text="주의 사항"
         app:layout_constraintBaseline_toBaselineOf="@id/noticeTextView"
-        app:layout_constraintEnd_toEndOf="@+id/nameValueEditText"
+        app:layout_constraintEnd_toEndOf="@+id/nameValueTextView"
         app:layout_constraintStart_toStartOf="@+id/guideline" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
